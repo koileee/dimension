@@ -1,0 +1,62 @@
+
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
+
+<!-- jQuery library -->
+<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" %>
+
+<!-- Latest compiled JavaScript -->
+<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
+
+<%= stylesheet_link_tag "path" %>
+
+<div class="container">
+  <div class="jumbotron" >
+
+
+
+    <h1>Dimension Experience <%= image_tag("RBC_02.png") %></h1>
+    <p>  Select A Role To Begin Experiencing The RBC Dimension  </p>
+    <hr class="my-4">
+    <%= button_to "Sign Out", url_for(:controller => :users, :action => :logout), method: :get, form_class: "btn btn-primary btn-md" %>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">Data Scientist</a>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">Machine Learning Developer</a>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">IOS/Android/Full Stack Developer</a>
+     </div>
+       <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">UI/UX Designer</a>
+     </div>
+     <div class="col-md-4 col-sm-4 col-xs-6">
+      <div class="dummy"></div>
+      <a href="#x" class="thumbnail purple">Graphic Designer</a>
+   </div>
+       <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">Quality Engineering</a>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">Security Analyst</a>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">Business Analyst</a>
+     </div>
+       <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="dummy"></div>
+        <a href="#x" class="thumbnail purple">Project Control Officer</a>
+     </div>
+
+    </div>
+</div>
