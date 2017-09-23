@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :path do
     collection do
+      get 'path'
     end
   end
 end

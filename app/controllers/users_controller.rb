@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       if @user.password == params[:user][:password]
         flash[:notice] = "Logged In"
         session[:current_user_id] = @user.id
-        redirect_to url_for(:controller => :path, :action => :index)
+        redirect_to url_for(:controller => :path, :action => :path)
       else
         flash[:error] = "Incorrect Password"
         redirect_to request.env["HTTP_REFERER"]

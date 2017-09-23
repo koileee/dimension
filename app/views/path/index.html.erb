@@ -1,5 +1,181 @@
         <%= javascript_include_tag "https://use.fontawesome.com/2ebaa7bc01.js" %>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <style>
+        html,body{overflow-y: scroll; }
 
+            body {
+                background-color: #fff;
+                margin: 0px;
+                overflow: hidden;
+                font-family:arial;
+                color:#fff;
+            }
+            #info {
+              color:#fff;
+              text-align: center;
+              font-weight: bold;
+            }
+
+            p{
+              color: #003366;
+              font-weight: bold;
+            }
+            h1{
+                text-align: center;
+                margin:0;
+                font-size:100px;
+
+            }
+            h2{
+              color:#003366;
+              font-weight: bold;
+            }
+
+            #RBC{
+              font-weight: 800;
+              font-size: 100px;
+            }
+
+
+            a {
+                color:#007;
+            }
+            p {
+              font-size: 20px;
+
+            }
+
+            #wrapper{
+              position: relative;
+              width: 100%;
+              height: 100px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+            }
+
+            #canvas{
+                width:100%;
+                height:870px;
+                overflow: hidden;
+                position:absolute;
+                top:0;
+                left:0;
+                background-color: #1a1724;
+                z-index:0
+            }
+            .canvas-wrap{
+                position:relative;
+                z-index: 0
+
+            }
+            div.canvas-content{
+                position:relative;
+                z-index:2000;
+                color:#fff;
+                padding-left: 30px;
+                padding-top:30px;
+                height:870px;
+                z-index: 1
+            }
+
+            .btn-xlarge {
+        padding: 18px 28px;
+        font-size: 22px;
+        line-height: normal;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+            border-radius: 8px;
+        }
+
+        #nav{
+        background-color: rgba(0, 0, 0, 0.5);
+        border-bottom: none;
+        z-index: 5;
+        }
+
+
+        .affix-top .nav>li>a {
+        color: #000;
+        }
+
+        .affix-top.navbar .nav>li>a:hover,
+        .affix-top.navbar .navbar-brand
+        {
+        color: #333;
+        }
+
+        img{
+        display: block;
+        margin:0 auto;
+        }
+
+        a:hover, a:focus {
+        color: #2a6496;
+        text-decoration: none;
+        }
+        .square-service-block{
+        position:relative;
+        overflow:hidden;
+        margin:20px auto;
+
+        }
+        .square-service-block a {
+        background-color: #3c55e7;
+        border-radius: 5px;
+        display: block;
+        padding: 60px 60px;
+        text-align: center;
+        width: 100%;
+        }
+        .square-service-block a:hover{
+        background-color: rgba(80, 178, 160, 0.9);
+        border-radius: 5px;
+        }
+
+        .ssb-icon {
+        color: #fff;
+        display: inline-block;
+        font-size: 28px;
+        margin: 0 0 20px;
+        }
+
+        h2.ssb-title {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 200;
+        margin:0;
+        padding:0;
+        text-transform: uppercase;
+        }
+
+        #aboutp{
+        color: #3c55e7;
+        }
+        #about{
+        text-align: center;
+        padding: 20px;
+
+        }
+
+        #game {
+        text-align: center;
+        background-color: rgba( 1, 182, 173,0.7);
+        padding: 20px;
+        }
+        .datasci{
+        font-size: 16px;
+        color: black;
+        }
+        .datasci1{
+        font-size: 18px;
+        color: blue;
+        }
+
+
+
+        </style>
 
       <div>
         <div id="nav" class="navbar navbar-inverse navbar-fixed-top" data-spy="affix">
@@ -12,17 +188,23 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
+                <% if @user %>
+                <li>
+                  <%= link_to(@user.fname, '#') %>
+                </li>
+                <% else %>
                 <li>
                   <%= link_to('Sign Up', :controller => :users, :action => :login) %>
                 </li>
                 <li><%= link_to('Log In', :controller => :users, :action => :login) %></li>
+                <% end %>
               </ul>
               <ul class="nav pull-right navbar-nav">
                 <li>
-                 <a href="#">Link</a>
+                 <a></a>
                 </li>
                 <li>
-                  <a href="#"><span class="badge">2</span></a>
+                  <a></a>
                 </li>
               </ul>
             </div>
@@ -60,7 +242,7 @@
        <div class="row">
           <div class="col-md-3">
             <div class="square-service-block" data-toggle="modal" data-target="#myModal">
-               <a href="#about">
+               <a>
                  <div class="ssb-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
                  <h2 class="ssb-title">Data Science</h2>
                </a>
@@ -69,7 +251,7 @@
 
           <div class="col-md-3">
             <div class="square-service-block">
-               <a href="#">
+               <a>
                  <div class="ssb-icon"> <i class="fa fa-globe" aria-hidden="true"></i> </div>
                  <h2 class="ssb-title">Software Development</h2>
                </a>
@@ -78,7 +260,7 @@
 
           <div class="col-md-3">
             <div class="square-service-block">
-               <a href="#">
+               <a>
                  <div class="ssb-icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
                  <h2 class="ssb-title">Graphic Design</h2>
                </a>
@@ -87,7 +269,7 @@
 
           <div class="col-md-3">
             <div class="square-service-block">
-               <a href="#">
+               <a>
                  <div class="ssb-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
                  <h2 class="ssb-title">Product Management</h2>
                </a>
@@ -102,8 +284,7 @@
    <h2> Experience RBC Dimension And Win Prizes! </h2>
    <p class="info"> Sign up or Log in for the RBC Dimension where you can solve problems and win prizes!</p>
    <p class="info"> Scores and answers will be kept for RBC recruitment team for future references. </p>
-   <button type="button" id="tellme" class="btn btn-primary btn-xlarge active" > Signup/Login</a>
-
+   <%= link_to('Sign Up', {:controller => :users, :action => :login}, class: "btn btn-primary btn-xlarge active") %>
  </section>
 
  <!-- Modal -->
@@ -141,7 +322,7 @@
       <div class="modal-body">
       <p class="datasci"> Sign-up for the RBC Dimension Game <br>
         Solve data science problems, level-up and win prizes! </p>
-        <%= button_to "Sign Up", url_for(:controller => :users, :action => :login), method: :get, form_class: "btn-primary" %>
+        <%= button_to "Sign Up", url_for(:controller => :users, :action => :login), method: :get, class: "btn btn-primary btn-xlarge active" %>
 
       </div>
   </div>
@@ -153,184 +334,10 @@
 
   </div>
 </div>
-<style>
-html,body{overflow-y: scroll; }
-
-    body {
-        background-color: #fff;
-        margin: 0px;
-        overflow: hidden;
-        font-family:arial;
-        color:#fff;
-    }
-    #info {
-      color:#fff;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    p{
-      color: #003366;
-      font-weight: bold;
-    }
-    h1{
-        text-align: center;
-        margin:0;
-        font-size:100px;
-
-    }
-    h2{
-      color:#003366;
-      font-weight: bold;
-    }
-
-    #RBC{
-      font-weight: 800;
-      font-size: 100px;
-    }
-
-
-    a {
-        color:#007;
-    }
-    p {
-      font-size: 20px;
-
-    }
-
-    #wrapper{
-      position: relative;
-      width: 100%;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-    }
-
-    #canvas{
-        width:100%;
-        height:870px;
-        overflow: hidden;
-        position:absolute;
-        top:0;
-        left:0;
-        background-color: #1a1724;
-        z-index:0
-    }
-    .canvas-wrap{
-        position:relative;
-        z-index: 0
-
-    }
-    div.canvas-content{
-        position:relative;
-        z-index:2000;
-        color:#fff;
-        padding-left: 30px;
-        padding-top:30px;
-        height:870px;
-        z-index: 1
-    }
-
-    .btn-xlarge {
-padding: 18px 28px;
-font-size: 22px;
-line-height: normal;
--webkit-border-radius: 8px;
--moz-border-radius: 8px;
-    border-radius: 8px;
-}
-
-#nav{
-background-color: rgba(0, 0, 0, 0.5);
-border-bottom: none;
-z-index: 5;
-}
-
-
-.affix-top .nav>li>a {
-color: #000;
-}
-
-.affix-top.navbar .nav>li>a:hover,
-.affix-top.navbar .navbar-brand
-{
-color: #333;
-}
-
-img{
-display: block;
-margin:0 auto;
-}
-
-a:hover, a:focus {
-color: #2a6496;
-text-decoration: none;
-}
-.square-service-block{
-position:relative;
-overflow:hidden;
-margin:20px auto;
-
-}
-.square-service-block a {
-background-color: #3c55e7;
-border-radius: 5px;
-display: block;
-padding: 60px 60px;
-text-align: center;
-width: 100%;
-}
-.square-service-block a:hover{
-background-color: rgba(80, 178, 160, 0.9);
-border-radius: 5px;
-}
-
-.ssb-icon {
-color: #fff;
-display: inline-block;
-font-size: 28px;
-margin: 0 0 20px;
-}
-
-h2.ssb-title {
-color: #fff;
-font-size: 20px;
-font-weight: 200;
-margin:0;
-padding:0;
-text-transform: uppercase;
-}
-
-#aboutp{
-color: #3c55e7;
-}
-#about{
-text-align: center;
-padding: 20px;
-
-}
-
-#game {
-text-align: center;
-background-color: rgba( 1, 182, 173,0.7);
-padding: 20px;
-}
-.datasci{
-font-size: 16px;
-color: black;
-}
-.datasci1{
-font-size: 18px;
-color: blue;
-}
-
-</style>
         <!-- Main library -->
         <!-- Helpers -->
-        <script type="text/javascript" src="frontend/js/projector.js"></script>
-        <script type="text/javascript" src="frontend/js/canvas-renderer.js"></script>
-        <script type="text/javascript" src="frontend/js/3d-lines-animation.js"></script>
-        <script type="text/javascript" src="frontend/js/color.js"></script>
-        <script type="text/javascript" src="frontend/js/navbar.js"></script>
+        <script type="text/javascript" src="/frontend/js/projector.js"></script>
+        <script type="text/javascript" src="/frontend/js/canvas-renderer.js"></script>
+        <script type="text/javascript" src="/frontend/js/3d-lines-animation.js"></script>
+        <script type="text/javascript" src="/frontend/js/color.js"></script>
+        <script type="text/javascript" src="/frontend/js/navbar.js"></script>
