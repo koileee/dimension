@@ -10,6 +10,9 @@ class PathController < ApplicationController
     end
   end
 
+  def data_center
+  end
+
   def show_eric
     @parsed_csv = csv_parse("HR_comma_sep.csv")
   end
