@@ -1,62 +1,164 @@
-
-<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
-
-<!-- jQuery library -->
-<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" %>
-
-<!-- Latest compiled JavaScript -->
-<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
-
-<%= stylesheet_link_tag "path" %>
-
-<div class="container">
-  <div class="jumbotron" >
+        <%= javascript_include_tag "https://use.fontawesome.com/2ebaa7bc01.js" %>
 
 
+      <div>
+        <div id="nav" class="navbar navbar-inverse navbar-fixed-top" data-spy="affix">
+          <div class="container">
+              <div class="navbar-header">
 
-    <h1>Dimension Experience <%= image_tag("RBC_02.png") %></h1>
-    <p>  Select A Role To Begin Experiencing The RBC Dimension  </p>
-    <hr class="my-4">
-    <%= button_to "Sign Out", url_for(:controller => :users, :action => :logout), method: :get, form_class: "btn btn-primary btn-md" %>
+            <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <i class="fa fa-bars"></i>
+            </a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li>
+                  <%= link_to('Sign Up', :controller => :users, :action => :login) %>
+                </li>
+                <li><%= link_to('Log In', :controller => :users, :action => :login) %></li>
+              </ul>
+              <ul class="nav pull-right navbar-nav">
+                <li>
+                 <a href="#">Link</a>
+                </li>
+                <li>
+                  <a href="#"><span class="badge">2</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div><!-- /.navbar -->
+
+        <section class="canvas-wrap">
+            <div class="canvas-content">
+              <div class="container">
+                <div class="col-lg-12">
+                  <br><br><br>
+                  <%= image_tag("RBC_02.png") %>
+                <h1 id="RBC">RBC</h1>
+                <h1>Dimensional Experience</h1>
+                <p id="info"> Experience Data science,
+                  Design, Software Development, and Product Management at RBC</P>
+                  <div id= "wrapper">
+                      <a href="#about">
+                    <button type="button" id="tellme" class="btn btn-info btn-xlarge active" id="tellme"> Tell Me More</button></a>
+                </div>
+              </div>
+              </div>
+
+            </div>
+          </div>
+            <div id="canvas" class="gradient"></div>
+        </section>
+
+<br>
+  <section id="about">
+    <div class="container">
+      <h2> About</h2>
+      <p id="aboutp"> Explore Data Science, Software Development, Graphic Design, and Product Management at RBC </p>
+       <div class="row">
+          <div class="col-md-3">
+            <div class="square-service-block" data-toggle="modal" data-target="#myModal">
+               <a href="#about">
+                 <div class="ssb-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+                 <h2 class="ssb-title">Data Science</h2>
+               </a>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="square-service-block">
+               <a href="#">
+                 <div class="ssb-icon"> <i class="fa fa-globe" aria-hidden="true"></i> </div>
+                 <h2 class="ssb-title">Software Development</h2>
+               </a>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="square-service-block">
+               <a href="#">
+                 <div class="ssb-icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
+                 <h2 class="ssb-title">Graphic Design</h2>
+               </a>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="square-service-block">
+               <a href="#">
+                 <div class="ssb-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+                 <h2 class="ssb-title">Product Management</h2>
+               </a>
+            </div>
+          </div>
+        </div>
+
+    	</div>
+ </section>
+
+ <section id="game">
+   <h2> Experience RBC Dimension And Win Prizes! </h2>
+   <p class="info"> Sign up or Log in for the RBC Dimension where you can solve problems and win prizes!</p>
+   <p class="info"> Scores and answers will be kept for RBC recruitment team for future references. </p>
+   <button type="button" id="tellme" class="btn btn-primary btn-xlarge active" > Signup/Login</a>
+
+ </section>
+
+ <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title"> Data Science at RBC</h2>
+      </div>
+      <ul class="nav nav-tabs" id="tabContent">
+    <li class="active"><a href="#details" data-toggle="tab" class="datasci1">Details</a></li>
+    <li><a href="#access-security" data-toggle="tab" class="datasci1">Profiles</a></li>
+    <li><a href="#networking" data-toggle="tab" class="datasci1">Challenge</a></li>
+  </ul>
+  <div class="tab-content">
+  <div class="tab-pane active" id="details">
+    <div class="modal-body">
+       <p class="datasci">
+         - Define data science and AI/ML strategy, test multiple “use” cases evaluating the ease of use & performance of different Data analytic tools
+         <br><br>- Develop and improve overall analytics talent through the use of but not limited to industry best practices and standards.
+         <br><br>- Develop, maintain, and promote principles, standards and guidelines that define best practices in the information domain and guide data architecture and design decisions
+         <br><br>- Participate in research, evaluation, and proof of concept for new products, technology, and packaged applications
+         <br><br>- Support the development and active adoption of new methods or processes to optimize analytics
+         <br><br>- Leverage new and existing models that can help the team identify and deliver powerful insights resulting in cost savings, additional revenue, improve client experience etc.
+         <br><br>- Develop, model and predict patterns in large data sets to predict outcomes</p>
+     </div>
   </div>
 
-  <div class="row">
-      <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">Data Scientist</a>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">Machine Learning Developer</a>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">IOS/Android/Full Stack Developer</a>
-     </div>
-       <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">UI/UX Designer</a>
-     </div>
-     <div class="col-md-4 col-sm-4 col-xs-6">
-      <div class="dummy"></div>
-      <a href="#x" class="thumbnail purple">Graphic Designer</a>
-   </div>
-       <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">Quality Engineering</a>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">Security Analyst</a>
-      </div>
-      <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">Business Analyst</a>
-     </div>
-       <div class="col-md-4 col-sm-4 col-xs-6">
-        <div class="dummy"></div>
-        <a href="#x" class="thumbnail purple">Project Control Officer</a>
-     </div>
+  <div class="tab-pane" id="access-security">
+      content 0
+  </div>
+  <div class="tab-pane" id="networking">
+      <div class="modal-body">
+      <p class="datasci"> Sign-up for the RBC Dimension Game <br>
+        Solve data science problems, level-up and win prizes! </p>
+        <%= button_to "Sign Up", url_for(:controller => :users, :action => :login), method: :get, form_class: "btn-primary" %>
 
-    </div>
+      </div>
+  </div>
 </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+        <!-- Main library -->
+        <!-- Helpers -->
+        <script type="text/javascript" src="frontend/js/projector.js"></script>
+        <script type="text/javascript" src="frontend/js/canvas-renderer.js"></script>
+        <script type="text/javascript" src="frontend/js/3d-lines-animation.js"></script>
+        <script type="text/javascript" src="frontend/js/color.js"></script>
+        <script type="text/javascript" src="frontend/js/navbar.js"></script>
+        

@@ -2,6 +2,9 @@ class PathController < ApplicationController
   before_action :load_user
 
   def index
+  end
+
+  def path
     unless @user
       redirect_to url_for(:controller => :users, :action => :login)
     end

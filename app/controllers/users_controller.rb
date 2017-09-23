@@ -18,12 +18,12 @@ class UsersController < ApplicationController
       else
         flash[:error] = "error"
       end
-      redirect_to url_for(:controller => :path, :action => :index)
+      redirect_to url_for(:controller => :path, :action => :path)
     end
   end
 
   def login
-    redirect_to :root if @user
+    redirect_to url_for(:controller => :path, :action => :path) if @user
     # field for will fill the values
   end
 
@@ -68,11 +68,6 @@ class UsersController < ApplicationController
       flash[:error] = "Incorrect password."
     end
     redirect_to :back
-  end
-
-  def follow_page
-    flash[:notice] = "Movement followed." if @user.follow(params.require(:id))
-    redirect_to :root
   end
 
   private
