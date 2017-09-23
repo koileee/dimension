@@ -4,7 +4,7 @@ var canvas = document.getElementById('myCanvas');
 var w = canvas.width = window.innerWidth;
 var h = canvas.height = window.innerHeight;
 
-var fov = 450; //pixels are 450px away from us
+var fov = 350; //pixels are 450px away from us
 
 var ctx = canvas.getContext("2d");
 //appending the canvas to the body
@@ -12,8 +12,8 @@ var ctx = canvas.getContext("2d");
 //an array of pixels with 3 dimensional coordinates
 //a square sheet of dots separated by 15px
 var pixels = [];
-for(var x = -450; x < 450; x+=15)
-	for(var z = -450; z < 450; z+=15)
+for(var x = -600; x < 600; x+=10)
+	for(var z = -600; z < 600; z+=10)
 		pixels.push({x: x, y: 140, z: z});
 
 //time to draw the pixels
@@ -32,7 +32,7 @@ function render()
 		//the scale will control how the spacing between the pixels will decrease with increasing distance from us.
 		var scale = fov/(fov+pixel.z);
 		var x2d = pixel.x * scale + w/2;
-		var y2d = pixel.y * scale + h/2;
+		var y2d = pixel.y * scale + h/3;
 		//marking the points green - only if they are inside the screen
 		if(x2d >= 0 && x2d <= w && y2d >= 0 && y2d <= h)
 		{
