@@ -16,17 +16,19 @@
 
 	.canvas-content {
 		text-align: center;
+    positon: absolute;
+
 	}
+
 
 	h1 {
     position: absolute;
-    padding-left: 70px;
+    padding-left: 65px;
     text-align: center;
 		font-size: 100px;
-		font-weight: 400;
+		font-weight: 2rem;
     z-index: 200;
-    color:
-	}
+    color: white;}
 
   .btn-xlarge {
   padding: 18px 40px;
@@ -38,28 +40,110 @@
   }
 
 
+
   #center {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(51, 112, 200, 0.5);
-    color: black;
+    background-color: rgba(0, 0, 153, 0.9);
+    color: white;
     z-index: 5;
   }
 
   #center:hover {
     background: rgba(225, 225, 0, 0.5);
   }
+
+  #nav{
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom: none;
+  z-index: 5;
+  }
+
+
+  .affix-top .nav>li>a {
+  color: #000;
+  }
+
+  .affix-top.navbar .nav>li>a:hover,
+  .affix-top.navbar .navbar-brand
+  {
+  color: #333;
+  }
+
+
+  a:hover, a:focus {
+  color: #2a6496;
+  text-decoration: none;
+  }
+
+  .square-service-block{
+  position:relative;
+  overflow:hidden;
+  margin:20px auto;
+
+  }
+  .square-service-block a {
+  background-color: #3c55e7;
+  border-radius: 5px;
+  display: block;
+  padding: 60px 60px;
+  text-align: center;
+  width: 100%;
+  }
+  .square-service-block a:hover{
+  background-color: rgba(80, 178, 160, 0.9);
+  border-radius: 5px;
+  }
+
+  .ssb-icon {
+  color: #fff;
+  display: inline-block;
+  font-size: 28px;
+  margin: 0 0 20px;
+  }
+
+  h2.ssb-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200;
+  margin:0;
+  padding:0;
+  text-transform: uppercase;
+  }
+
 	</style>
 
 
 
-<body style='margin: 0px; background-color: rgba(51, 112, 200,0.9); overflow-y: scroll;'>
+<body style='margin: 0px; background: linear-gradient(to bottom, #a9e4f7 0%,#0fb4e7 100%); overflow: hidden;'>
+  <div>
+    <div id="nav" class="navbar navbar-inverse navbar-fixed-top" data-spy="affix">
+      <div class="container">
+          <div class="navbar-header">
+
+        <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          </ul>
+        </div>
+      </div>
+    </div><!-- /.navbar -->
+  </div><!-- /.navbar -->
+
   <section class="canvas-wrap">
       <div class="canvas-content">
+      </br> </br> </br> </br> </br></br></br></br></br>
+        <img src="RBC_02.png">
+
+         </br>
         <h1> Welcome to the Data Center. </h1>
-        <a href="http://www.google.ca"><button type="button" id="center" class="btn btn-primary btn-xlarge active"> Start </button> </a>
+        <a href="http://www.google.ca"> <button type="button" class="btn btn-success btn-xlarge active" id="center"> Start </button></a>
+
 
       </div>
         <div id="canvas" class="game">
