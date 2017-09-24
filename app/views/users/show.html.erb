@@ -107,7 +107,7 @@ h2.ssb-title {
 }
 
 .tab-content {
-  text-align: center;
+
   z-index: 200;
 }
 
@@ -313,7 +313,7 @@ h2.ssb-title {
 
             <div class="col-lg-12" style=" padding:10px">
             <div class="col-lg-6" style="padding:10px">
-            <div class="content" >
+            <div class="well" >
             <table style="width:80%">
               <tr>
                 <th> <h1 style="font-weight:bold" class="b">RBCoins Wallet<h1></th>
@@ -329,6 +329,7 @@ h2.ssb-title {
 
           </div>
           <div class="col-lg-6" style="background-color: #0080fg50; padding:10px">
+            <div class="well">
             <table style="width:80%">
               <tr>
                 <th> <h1 style="font-weight:bold" class="b">Challenges Solved<h1></th>
@@ -341,6 +342,7 @@ h2.ssb-title {
               </tr>
             </table>
           </div>
+        </div>
           <div class="col-lg-12" style="padding-top:10px">
           </div>
           </div>
@@ -348,11 +350,16 @@ h2.ssb-title {
           <div class="tab-pane fade in" id="tab2">
             <div class="row">
             <div class="col-lg-12" style="background-color: #0080ff50; padding:10px">
-            <h1 style="color:rgba(0,0,153,0.9)">Solve Challenges to Win RBCoins And Bid For Jobs</h1><br>
-            <p> Coins can only be used based on the category they belong. For example, Data Science coins can only be used for bidding jobs under the data science category. </p><br>
+
+            <h1 id="name" style="color:rgba(0,0,153,0.9)">Solve Challenges to Win RBCoins And Bid For Jobs</h1><br>
+            <p id="name2"> Coins can only be used based on the category they belong. For example, Data Science coins can only be used for bidding jobs under the data science category. </p><br>
             <div class="container">
                <div class="col-md-3">
+<<<<<<< Updated upstream:app/views/users/show.html.erb
                  <div class="square-service-block">
+=======
+                 <div class="square-service-block" >
+>>>>>>> Stashed changes:public/frontend/profile1.html
                     <a>
                       <button onclick="showChallenges()">
 
@@ -362,6 +369,7 @@ h2.ssb-title {
                     </a>
                  </div>
                </div>
+
 
                <div class="col-md-3">
                  <div class="square-service-block">
@@ -435,7 +443,7 @@ h2.ssb-title {
                 <div class="col-lg-6">
     <h2>Data Science</h2>
     <ul class="list-group">
-      <li class="list-group-item"><a href="#DA">Data Analyst</a></li>
+      <li class="list-group-item" data-toggle="modal" data-target="#myModal"> <a href="#myModal">Data Analyst </a></li>
       <li class="list-group-item"><a href="http://www.google.com">Data Scientist</a></li>
       <li class="list-group-item"><a href="http://www.google.com">Machine Learning Developer</a></li>
         </ul>
@@ -490,12 +498,80 @@ h2.ssb-title {
       document.getElementById("tab2").style.display = "none";
     }
 
+<<<<<<< Updated upstream:app/views/users/show.html.erb
     function hideChallenges(){
       document.getElementById("tab2-alternate").style.display = "none";
       document.getElementById("tab2").style.display = "inline";
     }
   </script>
       </div>
+=======
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+
+                      </button>
+                       <h4 class="modal-title" id="myModalLabel">Data Analyst</h4>
+
+                  </div>
+                  <div class="modal-body">
+                      <div role="tabpanel">
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                              <li role="presentation" class="active"><a href="#da" aria-controls="uploadTab" role="tab" data-toggle="tab">Job Description</a>
+
+                              </li>
+                              <li role="presentation"><a href="#ldb" aria-controls="browseTab" role="tab" data-toggle="tab">Leaderboard</a> </li> </ul>
+                              <!-- Tab panes -->
+  <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="da">
+        <p> Data analyst responsibilities include conducting full lifecycle analysis to include requirements, activities and design. Data analysts will develop analysis and reporting capabilities.
+          They will also monitor performance and quality control plans to identify improvements.</p>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="ldb">
+        <table>
+        <tr>
+          <td> 100 </td>
+        </tr>
+        <td> 99 </td>
+      </tr>
+    </table>
+      </div>
+  </div>
+</div>
+</div>
+<div class="modal-footer">
+
+<form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label  class="col-sm-6 control-label"
+                              for="inputEmail3">Bid</label>
+                    <div class="col-sm-3">
+                        <input type="number" class="form-control"
+                        id="inputbid" placeholder="Bid Amount"/>
+                    </div>
+                    <div class="col-sm-3">
+                      <button type="button" class="btn btn-primary">Place a Bid</button>
+                    </div>
+                  </div>
+</form>
+
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+      </body>
+>>>>>>> Stashed changes:public/frontend/profile1.html
 
       <script src="/frontend/js/three.min.js"></script>
 
