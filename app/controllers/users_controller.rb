@@ -11,19 +11,19 @@ class UsersController < ApplicationController
       redirect_to request.env["HTTP_REFERER"]
     else
       @user = User.new
-      @user.update_attributes(email: params[:user][:email], password: params[:user][:password], fname: params[:user][:fname], lname: params[:user][:lname], rbcoins: 0, type: 0)
+      @user.update_attributes(email: params[:user][:email], password: params[:user][:password], fname: params[:user][:fname], lname: params[:user][:lname], rbcoins: 0, user_type: 0)
       if @user.save
         flash[:notice] = "created"
         session[:current_user_id] = @user.id
       else
         flash[:error] = "error"
       end
-      redirect_to url_for(:controller => :path, :action => :path)
+      redirect_to @user
     end
   end
 
   def login
-    redirect_to url_for(:controller => :path, :action => :path) if @user
+    redirect_to @user if @user
     # field for will fill the values
   end
 
@@ -54,20 +54,6 @@ class UsersController < ApplicationController
     return if @user
     flash[:error] = "Please login."
     redirect_to :login_users
-  end
-
-  def change_password
-    if @user.password == params[:password] && params[:rep_password] == params[:new_password]
-      @user.password = params[:password]
-      if @user.save
-        flash[:notice] = "Password changed."
-      else
-        flash[:error] = "Failed to change the password."
-      end
-    else
-      flash[:error] = "Incorrect password."
-    end
-    redirect_to :back
   end
 
   private
