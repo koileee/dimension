@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to request.env["HTTP_REFERER"]
     else
       @user = User.new
-      @user.update_attributes(email: params[:user][:email], password: params[:user][:password], fname: params[:user][:fname], lname: params[:user][:lname])
+      @user.update_attributes(email: params[:user][:email], password: params[:user][:password], fname: params[:user][:fname], lname: params[:user][:lname], rbcoins: 0, type: 0)
       if @user.save
         flash[:notice] = "created"
         session[:current_user_id] = @user.id
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       if @user.password == params[:user][:password]
         flash[:notice] = "Logged In"
         session[:current_user_id] = @user.id
-        redirect_to url_for(:controller => :path, :action => :path)
+        redirect_to url_for(:controller => :path, :action => :paths)
       else
         flash[:error] = "Incorrect Password"
         redirect_to request.env["HTTP_REFERER"]

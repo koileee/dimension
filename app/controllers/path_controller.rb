@@ -4,7 +4,7 @@ class PathController < ApplicationController
   def index
   end
 
-  def path
+  def paths
     unless @user
       redirect_to url_for(:controller => :users, :action => :login)
     end

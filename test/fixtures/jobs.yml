@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poisition: MyString
+  desc: MyString
+  status: MyString
+  top_points: MyString
+  end_date: MyString
+  user_id: MyString
+
+two:
+  poisition: MyString
+  desc: MyString
+  status: MyString
+  top_points: MyString
+  end_date: MyString
+  user_id: MyString

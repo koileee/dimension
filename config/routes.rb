@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :path do
     collection do
-      get 'path'
+      get 'paths'
       get 'data_center'
       get 'show_eric'
     end
