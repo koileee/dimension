@@ -201,6 +201,21 @@ h2.ssb-title {
      padding:20px;
    }
 
+   .notification{
+     display:none;
+     position:absolute;
+     height:30px;
+     width:600px;
+     padding:5px;
+     background-color:#dae1ed;
+     top:360px;
+     left:50%;
+     border-radius:4px;
+     font-weight: bold;
+     transform:translate(-50%, 0%);
+     text-align:center;
+   }
+
     </style>
 
     <div id="myModal" class="modal fade" role="dialog">
@@ -217,7 +232,7 @@ h2.ssb-title {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" onclick="submit1()" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
           </div>
         </div>
 
@@ -234,13 +249,13 @@ h2.ssb-title {
             <h4 class="modal-title">What is logistic regression? (1 coin)</h4>
           </div>
           <div class="modal-body">
-            <br> <input type="radio"> technique to predict 2 possible outcomes using predictor variables</input>
+            <br> <input id="correct-answer" type="radio"> technique to predict 2 possible outcomes using predictor variables</input>
             <br> <input type="radio"> technique to predict 4 possible outcomes using predictor variables</input>
             <br> <input type="radio"> regression that is logistic</input>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" onclick="submit2()" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
           </div>
         </div>
 
@@ -254,14 +269,14 @@ h2.ssb-title {
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">How would you create a taxonomy to identify key customer trends in unstructured data? (3 coins)</h4>
+            <h4 class="modal-title">Python or R – Which one would you prefer for text analytics? (3 coins)</h4>
           </div>
           <div class="modal-body">
             <textarea name="name" rows="8" cols="80"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
+            <button type="button" class="btn btn-default" onclick="submit3()" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
           </div>
         </div>
 
@@ -282,11 +297,12 @@ h2.ssb-title {
 
             </div>
           </div>
+          <div class="notification"></div>
             <div id="canvas" class="gradient"></div>
         </section>
         <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
             <div class="btn-group" role="group">
-                <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <button type="button" id="stars" onclick="tab1show()" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                     <div >Profile</div>
                 </button>
             </div>
@@ -318,7 +334,7 @@ h2.ssb-title {
               </tr>
               <tr>
                 <tr><td><h3 style="text-align:left">Design:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
-                <tr><td><h3 style="text-align:left">Data Science:</h3></td><td><h3 style="text-align:right"><%= @user.rbcoins %></h3></td></tr>
+                <tr><td><h3 style="text-align:left">Data Science:</h3></td><td><h3 style="text-align:right" id="coin_count">0</h3></td></tr>
                 <tr><td><h3 style="text-align:left">Project Management:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
                 <tr><td><h3 style="text-align:left">Software Development:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
               </tr>
@@ -403,29 +419,29 @@ h2.ssb-title {
       <div class="tab-pane fade in" id="tab2-alternate">
         <div class="challenge-list">
           <!-- <ul class="challenges"> -->
-            <button class="challenge-entry" data-toggle="modal" data-target="#myModal">
+            <button id="challenge1" class="challenge-entry" data-toggle="modal" data-target="#myModal">
               <h1>Short Answer</h1>
-              <div class="challenge-description">Challenge Question for data scientist</div>
+              <div class="challenge-description">3 RBCoins</div>
             </button>
-            <button class="challenge-entry" data-toggle="modal" data-target="#myModal2">
+            <button id="challenge2" class="challenge-entry" data-toggle="modal" data-target="#myModal2">
               <h1>Multiple Choice</h1>
-              <div class="challenge-description">Challenge Question for data scientist</div>
+              <div class="challenge-description">1 RBCoins</div>
             </button>
-            <button class="challenge-entry" data-toggle="modal" data-target="#myModal3">
-              <h1>stuff</h1>
-              <div class="challenge-description">Challenge Question for data scientist</div>
+            <button id="challenge3" class="challenge-entry" data-toggle="modal" data-target="#myModal3">
+              <h1>Short Answer</h1>
+              <div class="challenge-description">3 RBCoins</div>
             </button>
             <button class="challenge-entry"><h1>Coming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
-            <button class="challenge-entry"><h1>Comming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
+            <button class="challenge-entry"><h1>Coming Soon</h1></button>
           <!-- </ul> -->
         </div>
       </div>
@@ -517,14 +533,12 @@ h2.ssb-title {
 
        </div>
        <div class="modal-footer">
-         <form>
     <div class="input-group input-group-md">
-      <input type="number" class="form-control" placeholder="My Bid ">
+      <input id="bid-amount" type="number" min="0" max="1" class="form-control" placeholder="My Bid ">
       <div class="input-group-btn">
-        <button class="btn btn-default" type="submit">Bid!</button>
+        <button class="btn btn-default" onclick="placeBid()" data-dismiss="modal">Bid!</button>
       </div>
     </div>
-  </form>
   <br>
 
          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -537,8 +551,20 @@ h2.ssb-title {
 
 
   <script>
+  var coinCount = 0;
+  function flashMessage(msg){
+    var element = document.getElementsByClassName("notification");
+    element[0].innerHTML = msg;
+    $(".notification").fadeIn();
+    setTimeout(function(){ $(".notification").fadeOut(); }, 3000);
+  }
   $(document).ready(function() {
+
+    document.getElementById("coin_count").innerHTML = coinCount;
+
+
   $(".btn-pref .btn").click(function () {
+
       $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
       // $(".tab").addClass("active"); // instead of this do the below
       $(this).removeClass("btn-default").addClass("btn-primary");
@@ -555,10 +581,63 @@ h2.ssb-title {
        document.getElementById("tab2").style.display = "inline";
      }
 
+     function submit1(){
+       document.getElementById("challenge1").style.display = "none";
+
+       flashMessage("Submitted");
+     }
+
+     function submit2(){
+       if(document.getElementById("correct-answer").checked){
+         coinCount++;
+         document.getElementById("coin_count").innerHTML = coinCount;
+         flashMessage("Correct");
+       }
+       else {
+         flashMessage("Incorrect");
+       }
+
+       document.getElementById("challenge2").style.display = "none";
+
+     }
+
+     function submit3(){
+       document.getElementById("challenge3").style.display = "none";
+       flashMessage("Submitted");
+     }
+
+     function placeBid()
+     {
+       if (document.getElementById("bid-amount").value <= coinCount)
+       {
+         coinCount--;
+         document.getElementById("coin_count").innerHTML = coinCount;
+
+         flashMessage("Bid Placed");
+       }
+        else{
+          flashMessage("Not Enough Coins");
+        }
+     }
+
 function tab3show() {
   if (document.getElementById("tab2").style.display != "none") {
-  document.getElementById("tab2").style.display = "none";
+    document.getElementById("tab2").style.display = "none";
+  }
+
+  if (document.getElementById("tab2-alternate").style.display != "none") {
+    document.getElementById("tab2-alternate").style.display = "none";
+  }
 }
+
+function tab1show(){
+  if (document.getElementById("tab2").style.display != "none") {
+    document.getElementById("tab2").style.display = "none";
+  }
+
+  if (document.getElementById("tab2-alternate").style.display != "none") {
+    document.getElementById("tab2-alternate").style.display = "none";
+  }
 }
 
    </script>
