@@ -218,7 +218,7 @@ h2.ssb-title {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
+            <button id="submit1" type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
           </div>
         </div>
 
@@ -241,7 +241,7 @@ h2.ssb-title {
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
+            <button id="submit2" type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
           </div>
         </div>
 
@@ -255,14 +255,14 @@ h2.ssb-title {
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">How would you create a taxonomy to identify key customer trends in unstructured data? (3 coins)</h4>
+            <h4 class="modal-title">Python or R – Which one would you prefer for text analytics? (3 coins)</h4>
           </div>
           <div class="modal-body">
             <textarea name="name" rows="8" cols="80"></textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
+            <button id="submit3" type="button" class="btn btn-default" style="background-color:#008CBA;color:white;" data-dismiss="modal">Submit</button>
           </div>
         </div>
 
@@ -404,17 +404,17 @@ h2.ssb-title {
       <div class="tab-pane fade in" id="tab2-alternate">
         <div class="challenge-list">
           <!-- <ul class="challenges"> -->
-            <button class="challenge-entry" data-toggle="modal" data-target="#myModal">
+            <button id="challenge1" class="challenge-entry" data-toggle="modal" data-target="#myModal">
               <h1>Short Answer</h1>
-              <div class="challenge-description">Challenge Question for data scientist</div>
+              <div class="challenge-description">3 RBCoins</div>
             </button>
-            <button class="challenge-entry" data-toggle="modal" data-target="#myModal2">
+            <button id="challenge2" class="challenge-entry" data-toggle="modal" data-target="#myModal2">
               <h1>Multiple Choice</h1>
-              <div class="challenge-description">Challenge Question for data scientist</div>
+              <div class="challenge-description">2 RBCoins</div>
             </button>
-            <button class="challenge-entry" data-toggle="modal" data-target="#myModal3">
-              <h1>stuff</h1>
-              <div class="challenge-description">Challenge Question for data scientist</div>
+            <button id="challenge3" class="challenge-entry" data-toggle="modal" data-target="#myModal3">
+              <h1>Short Answer</h1>
+              <div class="challenge-description">3 RBCoins</div>
             </button>
             <button class="challenge-entry"><h1>Coming Soon</h1></button>
             <button class="challenge-entry"><h1>Comming Soon</h1></button>
@@ -483,6 +483,8 @@ h2.ssb-title {
       $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
       // $(".tab").addClass("active"); // instead of this do the below
       $(this).removeClass("btn-default").addClass("btn-primary");
+
+      disableChallenges();
   });
   });
      function showChallenges()
@@ -494,6 +496,28 @@ h2.ssb-title {
      function hideChallenges(){
        document.getElementById("tab2-alternate").style.display = "none";
        document.getElementById("tab2").style.display = "inline";
+     }
+
+     function disableChallenges(){
+       var element = document.getElementById("submit1");
+       var element2 = document.getElementById("submit2");
+       var element3 = document.getElementById("submit3");
+
+       element.addEventListener("click", function() {
+         var button = document.getElementById("challenge1");
+          button.disabled = true;
+          button.style.backgroundColor = "#eaebed";
+       }, false);
+       element2.addEventListener("click", function() {
+         var button = document.getElementById("challenge2");
+          button.disabled = true;
+          button.style.backgroundColor = "#eaebed";
+       }, false);
+       element3.addEventListener("click", function() {
+         var button = document.getElementById("challenge3");
+          button.disabled = true;
+          button.style.backgroundColor = "#eaebed";
+       }, false);
      }
    </script>
       </div>
