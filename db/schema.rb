@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924004919) do
+ActiveRecord::Schema.define(version: 20170924024214) do
 
   create_table "bids", force: :cascade do |t|
     t.integer "job_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170924004919) do
     t.integer "point_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "challenge_name"
   end
 
   create_table "jobs", force: :cascade do |t|

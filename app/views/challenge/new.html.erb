@@ -1,0 +1,6 @@
+<%= form_for Challenge.new, url: {controller: "challenge", action: "create"} do |f| %>
+  challenge_name:
+  <%= f.text_field :challenge_name %>
+  points:
+  <%= f.number_field :point_value %>
+<% end %>

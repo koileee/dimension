@@ -1,0 +1,335 @@
+        <script src="https://use.fontawesome.com/2ebaa7bc01.js"></script>
+
+
+        <style>
+        html,body{overflow-y: scroll; }
+
+            body {
+                background-color: #fff;
+                margin: 0px;
+                overflow: hidden;
+                font-family:arial;
+
+            }
+
+
+            #wrapper{
+              position: relative;
+              width: 100%;
+              height: 100px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+            }
+
+            #canvas{
+                width:100%;
+                height:300px;
+                overflow: hidden;
+                position:absolute;
+                top:0;
+                left:0;
+                background-color: #1a1724;
+                z-index:0
+            }
+            .canvas-wrap{
+                position:relative;
+                z-index: 0
+
+            }
+            div.canvas-content{
+                position:relative;
+                z-index:2000;
+                color:#fff;
+                padding-left: 30px;
+                padding-top:30px;
+                height:300px;
+                z-index: 1
+            }
+
+            .btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
+.square-service-block{
+	position:relative;
+	overflow:hidden;
+	margin:20px auto;
+
+	}
+.square-service-block a {
+  background-color: #3c55e7;
+  border-radius: 5px;
+  display: block;
+  padding: 60px 60px;
+  text-align: center;
+  width: 100%;
+}
+.square-service-block a:hover{
+  background-color: rgba(80, 178, 160, 0.9);
+  border-radius: 5px;
+}
+
+.ssb-icon {
+  color: #fff;
+  display: inline-block;
+  font-size: 28px;
+  margin: 0 0 20px;
+}
+
+h2.ssb-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200;
+  margin:0;
+  padding:0;
+  text-transform: uppercase;
+}
+
+.tab-content {
+  text-align: center;
+  z-index: 200;
+}
+
+
+
+.useravatar {
+   position: absolute;
+   top: 70px;
+   left: 46%;
+   right: 0;
+}
+.useravatar img {
+   width: 120px;
+   height: 120px;
+   max-width: 120px;
+   max-height: 120px;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   border: 5px solid rgba(255, 255, 255, 0.5);
+}
+ .card-info {
+   position: absolute;
+   bottom: 50px;
+   left: 45%;
+   right: 0;
+}
+.card-info .card-title {
+
+   font-size: 30px;
+   font-weight: bold;
+   line-height: 1;
+   color: #262626;
+   background-color: rgba(255, 255, 255, 0.3);
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+}
+.card-info {
+   overflow: hidden;
+   font-size: 12px;
+   line-height: 20px;
+   color: #737373;
+   text-overflow: ellipsis;
+}
+
+.btn-pref .btn {
+   -webkit-border-radius:0 !important;}
+
+
+    </style>
+        <section class="canvas-wrap">
+            <div class="canvas-content">
+
+                  <div class="useravatar">
+                      <img alt="" src="https://i2.wp.com/hennesseyonline.com/wp-content/uploads/2017/01/generic-profile-avatar_352864.jpg?fit=500%2C500&ssl=1">
+                  </div>
+                  <div class="card-info"> <span class="card-title"><%= @user.fname %> <%= @user.lname %></span>
+
+                  </div>
+
+
+
+            </div>
+          </div>
+            <div id="canvas" class="gradient"></div>
+        </section>
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <div class="hidden-xs">Profile</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <div class="hidden-xs">Challenges</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+                    <div class="hidden-xs">Jobs</div>
+                </button>
+            </div>
+        </div>
+        <br><br>
+
+
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="tab1" >
+
+
+
+            <div class="col-lg-12" style=" padding:10px">
+            <div class="col-lg-6" style="padding:10px">
+            <div class="content" >
+            <table style="width:80%">
+              <tr>
+                <th> <h1 style="font-weight:bold" class="b">RBCoins Wallet<h1></th>
+              </tr>
+              <tr>
+                <tr><td><h3 style="text-align:left">Design:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+                <tr><td><h3 style="text-align:left">Data Science:</h3></td><td><h3 style="text-align:right"><%= @user.rbcoins %></h3></td></tr>
+                <tr><td><h3 style="text-align:left">Project Management:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+                <tr><td><h3 style="text-align:left">Software Development:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+              </tr>
+            </table>
+          </div>
+
+          </div>
+          <div class="col-lg-6" style="background-color: #0080fg50; padding:10px">
+            <table style="width:80%">
+              <tr>
+                <th> <h1 style="font-weight:bold" class="b">Challenges Solved<h1></th>
+              </tr>
+              <tr>
+                <tr><td><h3 style="text-align:left">Design:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+                <tr><td><h3 style="text-align:left">Data Science:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+                <tr><td><h3 style="text-align:left">Project Management:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+                <tr><td><h3 style="text-align:left">Software Development:</h3></td><td><h3 style="text-align:right">0</h3></td></tr>
+              </tr>
+            </table>
+          </div>
+          <div class="col-lg-12" style="padding-top:10px">
+          </div>
+          </div>
+        </div>
+          <div class="tab-pane fade in" id="tab2">
+            <div class="row">
+            <div class="col-lg-12" style="background-color: #0080ff50; padding:10px">
+            <h1 style="color:rgba(0,0,153,0.9)">Solve Challenges to Win RBCoins And Bid For Jobs</h1><br>
+            <p> Coins can only be used based on the category they belong. For example, Data Science coins can only be used for bidding jobs under the data science category. </p><br>
+            <div class="container">
+               <div class="col-md-3">
+                 <div class="square-service-block" data-toggle="modal" data-target="#myModal">
+                    <a>
+                      <div class="ssb-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+                      <h2 class="ssb-title" id="ds">Data Science</h2>
+                    </a>
+                 </div>
+               </div>
+
+               <div class="col-md-3">
+                 <div class="square-service-block">
+                    <a>
+                      <div class="ssb-icon"> <i class="fa fa-globe" aria-hidden="true"></i> </div>
+                      <h2 class="ssb-title">Software Development</h2>
+                    </a>
+                 </div>
+               </div>
+
+               <div class="col-md-3">
+                 <div class="square-service-block">
+                    <a>
+                      <div class="ssb-icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
+                      <h2 class="ssb-title">Graphic Design</h2>
+                    </a>
+                 </div>
+               </div>
+
+               <div class="col-md-3">
+                 <div class="square-service-block">
+                    <a>
+                      <div class="ssb-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+                      <h2 class="ssb-title">Product Management</h2>
+                    </a>
+                 </div>
+               </div>
+          </div>
+        </div>
+        </div>
+      </div>
+          <div class="tab-pane fade in" id="tab3">
+              <div class="col-lg-12">
+                <div class="col-lg-6">
+    <h2>Data Science</h2>
+    <ul class="list-group">
+      <li class="list-group-item"><a href="#DA">Data Analyst</a></li>
+      <li class="list-group-item"><a href="http://www.google.com">Data Scientist</a></li>
+      <li class="list-group-item"><a href="http://www.google.com">Machine Learning Developer</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-6">
+  <h2>Software</h2>
+  <ul class="list-group">
+  <li class="list-group-item">Web Developer</li>
+
+  <li class="list-group-item">Software Engineer</li>
+  <li class="list-group-item">QA Engineer</li>
+  </ul>
+  </div>
+  <div class="col-lg-6">
+  <h2>Graphic Design</h2>
+  <ul class="list-group">
+  <li class="list-group-item">UI/UX Designer</li>
+  <li class="list-group-item">Graphic Designer</li>
+  <li class="list-group-item">Front-end Developer</li>
+  </ul>
+  </div>
+
+  <div class="col-lg-6">
+  <h2>Product Management</h2>
+  <ul class="list-group">
+  <li class="list-group-item">Business Analyst</li>
+  <li class="list-group-item">Product Management</li>
+  <li class="list-group-item">Business Development</li>
+  </ul>
+  </div>
+
+
+  </div>
+
+          </div>
+        </div>
+      </div>
+
+  <script>
+  $(document).ready(function() {
+  $(".btn-pref .btn").click(function () {
+      $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+      // $(".tab").addClass("active"); // instead of this do the below
+      $(this).removeClass("btn-default").addClass("btn-primary");
+  });
+  });
+  </script>
+      </div>
+
+      <script src="/frontend/js/three.min.js"></script>
+
+      <!-- Helpers -->
+      <script src="/frontend/js/projector.js"></script>
+      <script src="/frontend/js/canvas-renderer.js"></script>
+
+      <!-- Visualitzation adjustments -->
+      <script src="/frontend/js/3d-lines-animation.js"></script>
+
+      <!-- Animated background color -->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script src="/frontend/js/color.js"></script>
+      <script src="/frontend/js/navbar.js"></script>

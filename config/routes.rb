@@ -10,11 +10,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :challenge do
+    collection do
+    end
+  end
+
   resources :path do
     collection do
       get 'paths'
       get 'data_center'
-      get 'show_eric'
     end
   end
 end
